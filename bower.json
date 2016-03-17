@@ -1,0 +1,21 @@
+{
+  "name": "zeitgometerui",
+  "description": "Front end application to interface with Zeitgometer API",
+  "main": "index.js",
+  "authors": [
+    "Allen Phelps github.com/ajpcodes (http://github.com/AJPcodes)"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/AJPcodes/zeitgometerUI",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "^0.14.7"
+  }
+}
