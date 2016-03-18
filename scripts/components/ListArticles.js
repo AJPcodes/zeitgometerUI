@@ -2,7 +2,7 @@ var ListArticles = React.createClass({
 
   render: function(){
     var articles = this.props.articles.map(function(article){
-      return <li> {article.title} </li>;
+      return <li key={article.id}> {article.title} </li>;
     });
     return (
       <div>

@@ -6,14 +6,14 @@ var ArticlesContainer  = React.createClass({
 
   getInitialState: function() {
     return {
-      articles: [],
+      articles: [{'title': 'Gathering Articles, please wait'}]
     };
   },
 
   componentDidMount: function() {
     this.serverRequest = $.get(recentArticlesAPI, function (result) {
       this.setState({
-        articles: result.data,
+        articles: result.data
       });
     }.bind(this));
   },
