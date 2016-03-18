@@ -4,7 +4,6 @@ var ArticleConcepts = React.createClass({
     console.log(this.props)
     if (this.props.concepts) {
       var concepts = this.props.concepts.map(function(concept){
-      console.log(concept)
         return <div>{concept.concept.label} {concept.score}</div>;
         });
         return (<div>
