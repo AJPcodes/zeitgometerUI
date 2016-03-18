@@ -30,8 +30,9 @@ gulp.task('copy', function(){
 });
 
 gulp.task('watch', function() {
-    gulp.watch('./scripts/**/*.js', ['lint']);
-    gulp.watch('./styles/*.scss', ['sass']);
+
+  gulp.watch('./scripts/**/*.js', ['lint']);
+  gulp.watch('./styles/*.scss', ['sass']);
   gulp.watch(path.HTML, ['copy']);
 
   var watcher  = watchify(browserify({
