@@ -4,7 +4,8 @@
   "description": "Front end application to interface with Zeitgometer API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "serve": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,12 @@
     "watchify": "^3.7.0"
   },
   "dependencies": {
-    "bower": "^1.7.7"
+    "body-parser": "^1.15.0",
+    "bower": "^1.7.7",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "jquery": "^2.2.2",
+    "superagent": "^1.8.2"
   }
 }

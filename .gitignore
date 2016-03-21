@@ -34,3 +34,5 @@ node_modules
 
 scripts/example.js
 dist/vender
+dist/node_modules
+dist/package.json

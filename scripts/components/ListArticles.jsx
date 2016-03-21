@@ -1,4 +1,4 @@
-var ArticleConcepts = require('./ArticleConcepts')
+var ArticleConcepts = require('./ArticleConcepts.jsx')
 
 var ListArticles = React.createClass({
 

@@ -20,7 +20,7 @@ var path = {
     DEST: 'dist',
     DEST_SRC: 'dist/scripts',
     DEST_BUILD: 'dist/build',
-    ENTRY_POINT: './scripts/app.js'
+    ENTRY_POINT: './scripts/app.jsx'
 
 };
 
@@ -31,7 +31,7 @@ gulp.task('copy', function(){
 
 gulp.task('watch', function() {
 
-  gulp.watch('./scripts/**/*.js', ['lint']);
+  gulp.watch(['./scripts/**/*.js', './scripts/**/*.jsx'], ['lint']);
   gulp.watch('./styles/*.scss', ['sass']);
   gulp.watch(path.HTML, ['copy']);
 
@@ -60,7 +60,7 @@ gulp.task('lint', function () {
     // So, it's best to have gulp ignore the directory as well.
     // Also, Be sure to return the stream from the task;
     // Otherwise, the task may end before the stream has finished.
-    return gulp.src('./scripts/**/*.js')
+    return gulp.src(['./scripts/**/*.js', './scripts/**/*.jsx'])
         // eslint() attaches the lint output to the "eslint" property
         // of the file object so it can be used by other modules.
         .pipe(eslint({

@@ -1,6 +1,7 @@
-var ListConcepts = require('./ListConcepts')
+var ListConcepts = require('./ListConcepts.jsx')
+var request = require('superagent')
 
-var popularConceptsAPI = "http://zeitgometerapi.heroku.com/popular"
+var apiUrl = "http://zeitgometerapi.heroku.com/popular"
 
 var ConceptsContainer  = React.createClass({
 
@@ -11,11 +12,19 @@ var ConceptsContainer  = React.createClass({
   },
 
   componentDidMount: function() {
-    this.serverRequest = $.get(popularConceptsAPI, function (result) {
-      this.setState({
-        concepts: result.data
-      });
-    }.bind(this));
+     request
+      .post('/api')
+      .send({ "apiEndpoint": apiUrl})
+      .set('Accept', "*/*")
+      .end(function (err, res) {
+        if (err) return console.error(err)
+
+        var data = JSON.parse(res.text)
+        this.setState({
+          concepts: data.data
+        });
+
+      }.bind(this))
   },
 
   componentWillUnmount: function() {
