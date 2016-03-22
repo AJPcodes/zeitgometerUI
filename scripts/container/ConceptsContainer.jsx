@@ -1,4 +1,4 @@
-var ListConcepts = require('./ListConcepts.jsx')
+var ListConcepts = require('../components/ListConcepts.jsx')
 var request = require('superagent')
 
 var apiUrl = "http://zeitgometerapi.heroku.com/popular"

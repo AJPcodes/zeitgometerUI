@@ -1,4 +1,4 @@
-var ListArticles = require('./ListArticles.jsx')
+var ListArticles = require('../components/ListArticles.jsx')
 var request = require('superagent')
 
 var apiUrl = "http://zeitgometerapi.heroku.com/article/recent"

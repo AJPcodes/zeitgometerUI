@@ -7,7 +7,7 @@ var ListArticles = React.createClass({
       return  <li>
                 <div className="collapsible-header">{article.title}</div>
                 <div className="collapsible-body">
-                  <ArticleConcepts concepts={article.concepts}/>
+                  <ArticleConcepts title={article.title} concepts={article.concepts}/>
                 </div>
               </li>;
     });
