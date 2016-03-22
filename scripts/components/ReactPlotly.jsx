@@ -4,7 +4,8 @@ var RP = React.createClass({
     propTypes: {
       handle: React.PropTypes.string.isRequired,
       data: React.PropTypes.array.isRequired,
-      layout: React.PropTypes.object
+      layout: React.PropTypes.object,
+      config: React.PropTypes.object
     },
     componentDidMount: function componentDidMount() {
       this.plot(this.props);
@@ -15,8 +16,9 @@ var RP = React.createClass({
     plot: function plot(props) {
       var handle = props.handle,
           data = props.data,
-          layout = props.layout;
-      Plotly.plot(handle, data, layout);
+          layout = props.layout,
+          config = props.config;
+      Plotly.plot(handle, data, layout, config);
     },
     render: function render() {
       return React.createElement(

@@ -16,6 +16,7 @@ var ArticleConcepts = React.createClass({
       var layout = {                     // all "layout" attributes: #layout
           title: 'Topics by relevance',  // more about "layout.title": #layout-title
           barmode: 'stack',
+          showlegend: false,
           xaxis: {
               title: 'Relevance',
               range: [75, 100],
@@ -24,11 +25,12 @@ var ArticleConcepts = React.createClass({
               showline: false,
               showticklabels: true,
               showgrid: true
-            }
+            },
+          margin: {l: 200}
         }
 
 
-      var concepts = this.props.concepts.slice(0,15).forEach(function(concept){
+      var concepts = this.props.concepts.slice(0,15).reverse().forEach(function(concept){
         var score = concept.score.toFixed(2) * 100;
         // return <p><span className="badge">{concept.concept.label} {score}</span></p>;
           plotData.x.push(score),
@@ -37,11 +39,12 @@ var ArticleConcepts = React.createClass({
 
       var config = {
         showLink: false,
-        displayModeBar: true
+        displayModeBar: false,
+        displayLogo: false
       };
 
-      return (<div>
-          <RP handle={plotID} data={[plotData]} layout={layout}/>
+      return (<div className="plotlyPlot">
+          <RP handle={plotID} data={[plotData]} layout={layout} config={config}/>
         </div>
       )
 
