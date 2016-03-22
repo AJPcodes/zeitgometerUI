@@ -18,19 +18,20 @@ var ArticleConcepts = React.createClass({
           barmode: 'stack',
           showlegend: false,
           xaxis: {
-              title: 'Relevance',
-              range: [75, 100],
+              title: 'Relevance Score',
+              range: [50, 100],
               domain: [0, 1],
               zeroline: false,
               showline: false,
               showticklabels: true,
               showgrid: true
             },
-          margin: {l: 200}
+          height: 800,
+          margin: {l: 250}
         }
 
 
-      var concepts = this.props.concepts.slice(0,15).reverse().forEach(function(concept){
+      var concepts = this.props.concepts.slice(0,25).reverse().forEach(function(concept){
         var score = concept.score.toFixed(2) * 100;
         // return <p><span className="badge">{concept.concept.label} {score}</span></p>;
           plotData.x.push(score),

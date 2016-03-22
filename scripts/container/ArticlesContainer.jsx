@@ -34,7 +34,7 @@ var ArticlesContainer  = React.createClass({
   render: function(){
     return (
       <div>
-        <h3> Zeitgometer </h3>
+        <h3 id="articlesTop"> Articles </h3>
         <ListArticles articles={this.state.articles} />
       </div>
     )

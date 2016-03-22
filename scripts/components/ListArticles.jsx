@@ -13,7 +13,6 @@ var ListArticles = React.createClass({
     });
     return (
       <div>
-        <h3> Recent Articles </h3>
           <ul className="collapsible popout" data-collapsible="accordion">
             {articles}
           </ul>

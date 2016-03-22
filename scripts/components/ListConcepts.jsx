@@ -17,7 +17,6 @@ var ListConcepts = React.createClass({
     }.bind(this));
     return (
       <div>
-        <h3> Recent Articles </h3>
           <ul className="collapsible popout" data-collapsible="accordion">
             {concepts}
           </ul>
