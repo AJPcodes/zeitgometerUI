@@ -1,13 +1,13 @@
 var ListConcepts = require('../components/ListConcepts.jsx')
 var request = require('superagent')
 
-var apiUrl = "http://zeitgometerapi.heroku.com/popular"
+var apiUrl = "http://zeitgometerapi.heroku.com/concept/trending"
 
 var ConceptsContainer  = React.createClass({
 
   getInitialState: function() {
     return {
-      concepts: [{'title': 'Gathering Articles, please wait'}]
+      concepts: null
     };
   },
 
@@ -21,7 +21,7 @@ var ConceptsContainer  = React.createClass({
 
         var data = JSON.parse(res.text)
         this.setState({
-          concepts: data.data
+          concepts: data.data.concepts
         });
 
       }.bind(this))

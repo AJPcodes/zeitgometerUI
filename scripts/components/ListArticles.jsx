@@ -2,10 +2,16 @@ var ArticleConcepts = require('./ArticleConcepts.jsx')
 
 var ListArticles = React.createClass({
 
+
+
+
   render: function(){
     var articles = this.props.articles.map(function(article){
       return  <li>
-                <div className="collapsible-header">{article.title}</div>
+                <div className="collapsible-header">
+                  <h4>{article.title}</h4>
+                  <p> <a href={article.url} target="blank">Read it on {article.website.toUpperCase()}</a></p>
+                </div>
                 <div className="collapsible-body">
                   <ArticleConcepts title={article.title} concepts={article.concepts}/>
                 </div>

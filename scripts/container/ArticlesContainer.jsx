@@ -7,7 +7,9 @@ var ArticlesContainer  = React.createClass({
 
   getInitialState: function() {
     return {
-      articles: [{'title': 'Gathering Articles, please wait'}]
+      articles: [{'title': 'Gathering Articles, please wait',
+                  'url': "#",
+                  'website': ""}]
     };
   },
 
