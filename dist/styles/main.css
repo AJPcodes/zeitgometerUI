@@ -2,6 +2,7 @@ body {
   background-color: white; }
 
 h1, h3, h3, h4, h5, h6 {
+  font-size: 2em;
   display: block;
   text-align: center;
   padding: 0.5em; }

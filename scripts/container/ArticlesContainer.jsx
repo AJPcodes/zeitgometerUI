@@ -7,9 +7,7 @@ var ArticlesContainer  = React.createClass({
 
   getInitialState: function() {
     return {
-      articles: [{'title': 'Gathering Articles, please wait',
-                  'url': "#",
-                  'website': ""}]
+      articles: null
     };
   },
 
@@ -35,8 +33,8 @@ var ArticlesContainer  = React.createClass({
 
   render: function(){
     return (
-      <div>
-        <h3 id="articlesTop"> Articles </h3>
+      <div className="col s6">
+        <h3 id="articlesTop" > Articles </h3>
         <ListArticles articles={this.state.articles} />
       </div>
     )

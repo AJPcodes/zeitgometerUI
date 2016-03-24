@@ -50,7 +50,7 @@ var ListConcepts = React.createClass({
         }) //end map
 
         return  <li>
-                  <div className="collapsible-header">{concept} <span className="badge">{numArticles}</span></div>
+                  <div className="collapsible-header"><p>Concept: {concept}</p>  <p>Mentions: {numArticles}</p></div>
                   <div className="collapsible-body">{mappedArticles}</div>
                 </li>;
 
