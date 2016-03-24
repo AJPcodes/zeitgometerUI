@@ -33,7 +33,7 @@ var ArticlesContainer  = React.createClass({
 
   render: function(){
     return (
-      <div className="col s6">
+      <div className="col s10">
         <h3 id="articlesTop" > Articles </h3>
         <ListArticles articles={this.state.articles} />
       </div>

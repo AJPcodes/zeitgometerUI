@@ -2,8 +2,20 @@ var ArticleConcepts = require('./ArticleConcepts.jsx')
 
 var ListArticles = React.createClass({
 
+  componentDidMount: function() {
+      $('.modal-trigger').leanModal();
+  },
 
 
+  openGraph: function(modalID) {
+    console.log('open graph')
+    $("#" + modalID).openModal()
+  },
+
+  closeGraph: function(modalID) {
+    console.log('close graph')
+    $("#" + modalID).closeModal()
+  },
 
   render: function(){
 
@@ -21,13 +33,23 @@ var ListArticles = React.createClass({
         return  <li>
                   <div className="collapsible-header">
                     <h4>{article.title}</h4>
-                    <p> <a href={article.url} target="blank">Read it on {article.website.toUpperCase()}</a></p>
                   </div>
                   <div className="collapsible-body">
-                    <ArticleConcepts title={article.title} concepts={article.concepts}/>
+                    <p> <a href={article.url} target="blank">Read it on {article.website.toUpperCase()}</a>
+                    <a className="waves-effect waves-light btn .modal-trigger" href={"#" + article._id} onClick={function(){this.openGraph(article._id)}.bind(this)}>Concepts</a>
+                    </p>
+                    <div id={article._id} className="modal">
+                      <div className="modal-content">
+                        <h4>{article.title}</h4>
+                        <ArticleConcepts title={article.title} concepts={article.concepts}/>
+                      </div>
+                        <div className="modal-footer">
+                          <a href="#!" className="modal-action modal-close waves-effect waves-green btn-flat" onClick={function() {this.closeGraph(article._id)}.bind(this)}>Close</a>
+                        </div>
+                    </div>
                   </div>
                 </li>;
-      });
+      }.bind(this));
       return (
         <div>
             <ul className="collapsible popout" data-collapsible="accordion">
@@ -40,3 +62,4 @@ var ListArticles = React.createClass({
 })
 
 module.exports = ListArticles
+

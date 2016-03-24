@@ -44,7 +44,8 @@ var ArticleConcepts = React.createClass({
         displayLogo: false
       };
 
-      return (<div className="plotlyPlot">
+      return (
+        <div className="plotlyPlot">
           <RP handle={plotID} data={[plotData]} layout={layout} config={config}/>
         </div>
       )
@@ -99,3 +100,4 @@ module.exports = ArticleConcepts
   //     <Plotly className="whatever" data={data} layout={layout} config={config}/>
   //   );
   // }
+
