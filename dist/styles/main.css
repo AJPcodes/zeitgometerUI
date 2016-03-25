@@ -1,8 +1,11 @@
 body {
-  background-color: white; }
+  background-color: #e6ee9c; }
+
+nav {
+  background-color: #afb42b; }
 
 h1, h3, h3, h4, h5, h6 {
-  font-size: 2em;
+  font-size: 1.5em;
   display: block;
   text-align: center;
   padding: 0.5em; }
