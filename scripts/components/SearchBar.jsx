@@ -13,10 +13,20 @@ var SearchBar = React.createClass({
         this.setState({searchString:e.target.value});
     },
 
+    handleClick: function(concept){
+
+        lookup = this.props.conceptLookup,
+        lookup(concept._id)
+    },
+
+
+
     render: function() {
 
         var libraries = this.props.items,
+            handleClick = this.handleClick,
             searchString = this.state.searchString.trim().toLowerCase();
+
 
         if(libraries == null) {
             libraries = [<li> Loading Dictionary </li>]
@@ -31,7 +41,7 @@ var SearchBar = React.createClass({
             });
 
             libraries = libraries.map(function(l){
-                return <li>{l.label} </li>
+                return <li onClick={function(){handleClick(l)}}>{l.label} </li>
             })
 
 

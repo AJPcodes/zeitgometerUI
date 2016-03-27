@@ -15,19 +15,16 @@ var ConceptsContainer  = React.createClass({
   },
 
   componentDidMount: function() {
-     request
-      .post('/api')
-      .send({ "apiEndpoint": trending})
-      .set('Accept', "*/*")
-      .end(function (err, res) {
-        if (err) return console.error(err)
+     this.getData();
+  },
 
-        var data = JSON.parse(res.text)
-        this.setState({
-          concepts: data.data.concepts
-        });
+  componentWillUnmount: function() {
+    this.serverRequest.abort();
+  },
 
-      }.bind(this))
+  getData: function() {
+
+    this.trendingLookup()
 
     request
       .post('/api')
@@ -45,14 +42,49 @@ var ConceptsContainer  = React.createClass({
       }.bind(this))
   },
 
-  componentWillUnmount: function() {
-    this.serverRequest.abort();
+  conceptLookup: function(conceptId) {
+
+    console.log('concept lookup called with', conceptId)
+    var apiUrl = "http://zeitgometerapi.heroku.com/concept/" + conceptId
+
+     request
+      .post('/api')
+      .send({ "apiEndpoint": apiUrl})
+      .set('Accept', "*/*")
+      .end(function (err, res) {
+        if (err) return console.error(err)
+
+        var data = JSON.parse(res.text)
+        this.setState({
+          concepts: data.data
+        });
+
+      }.bind(this))
+
+  },
+
+  trendingLookup: function() {
+
+     request
+      .post('/api')
+      .send({ "apiEndpoint": trending})
+      .set('Accept', "*/*")
+      .end(function (err, res) {
+        if (err) return console.error(err)
+
+        var data = JSON.parse(res.text)
+        this.setState({
+          concepts: data.data.concepts
+        });
+
+      }.bind(this))
+
   },
 
   render: function(){
     return (
       <div className="col s10">
-        <SearchBar items={this.state.conceptsList} />
+        <SearchBar items={this.state.conceptsList} conceptLookup={this.conceptLookup}/>
         <h3 id="conceptsTop" >Trending</h3>
         <ListConcepts concepts={this.state.concepts} />
       </div>
