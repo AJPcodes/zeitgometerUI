@@ -14,7 +14,7 @@ var ArticleConcepts = React.createClass({
       }
 
       var layout = {                     // all "layout" attributes: #layout
-          title: 'Topics by relevance',  // more about "layout.title": #layout-title
+          title: 'Concepts By Relevance',  // more about "layout.title": #layout-title
           barmode: 'stack',
           showlegend: false,
           xaxis: {
@@ -22,12 +22,13 @@ var ArticleConcepts = React.createClass({
               range: [50, 100],
               domain: [0, 1],
               zeroline: false,
-              showline: false,
-              showticklabels: true,
-              showgrid: true
+              showline: false
+              // showticklabels: true,
+              // showgrid: true
             },
-          height: 800,
-          margin: {l: 250}
+          height: 600,
+          width: 550,
+          margin: {l: 350}
         }
 
 

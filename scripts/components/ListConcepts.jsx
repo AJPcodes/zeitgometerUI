@@ -43,8 +43,7 @@ var ListConcepts = React.createClass({
         mappedArticles = articles.map(function(article) {
 
           return  <div>
-                    <h6> {article.title} </h6>
-                    <p> <a href={article.url} target="blank"> Read it on {article.website} </a></p>
+                    <h6> {article.title}: <a href={article.url} target="blank"> {article.website} </a></h6>
                   </div>;
 
         }) //end map

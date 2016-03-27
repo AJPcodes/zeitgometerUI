@@ -1,18 +1,16 @@
 body {
   background-color: #e6ee9c; }
 
-nav {
-  background-color: #afb42b; }
-
 h1, h3, h3, h4, h5, h6 {
   font-size: 1.5em;
   display: block;
   text-align: center;
   padding: 0.5em; }
 
-.plotlyPlot {
-  margin: 2em; }
-
 nav {
+  background-color: #afb42b;
   height: 6em;
   padding: 1em; }
+
+.collapsible-header {
+  background-color: #cddc39; }

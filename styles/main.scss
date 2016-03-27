@@ -16,9 +16,6 @@ body {
   background-color: $lighten-3;
 }
 
-nav {
-  background-color: $darken-2;
-}
 h1,h3,h3,h4,h5,h6 {
   font-size: 1.5em;
   display: block;
@@ -26,11 +23,12 @@ h1,h3,h3,h4,h5,h6 {
   padding: 0.5em;
 }
 
-.plotlyPlot {
-  margin: 2em;
-}
-
 nav {
+  background-color: $darken-2;
   height: 6em;
   padding: 1em;
+}
+
+.collapsible-header {
+  background-color: $primary;
 }
