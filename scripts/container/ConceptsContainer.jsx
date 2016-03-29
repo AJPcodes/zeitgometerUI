@@ -44,7 +44,7 @@ var ConceptsContainer  = React.createClass({
 
   conceptLookup: function(conceptId) {
 
-    console.log('concept lookup called with', conceptId)
+    // console.log('concept lookup called with', conceptId)
     var apiUrl = "http://zeitgometerapi.heroku.com/concept/" + conceptId
 
      request
