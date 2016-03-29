@@ -28,7 +28,7 @@ var ArticleConcepts = React.createClass({
             },
           height: 600,
           width: 550,
-          margin: {l: 350}
+          margin: {l: 250}
         }
 
 

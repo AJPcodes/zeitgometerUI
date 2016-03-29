@@ -26,7 +26,7 @@ var SearchBar = React.createClass({
 
 
         if(libraries == null) {
-            libraries = [<li> Loading Dictionary </li>]
+            libraries = [<li></li>]
         }
 
         if(searchString.length > 0){
@@ -38,7 +38,7 @@ var SearchBar = React.createClass({
             });
 
             libraries = libraries.map(function(l){
-                return <li onClick={function(){handleClick(l)}}>{l.label} </li>
+                return <li onClick={function(){handleClick(l)}}><p> {l.label} </p></li>
             })
 
 

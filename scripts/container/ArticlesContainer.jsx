@@ -1,7 +1,8 @@
 var ListArticles = require('../components/ListArticles.jsx')
 var request = require('superagent')
 
-var apiUrl = "http://zeitgometerapi.heroku.com/article/recent"
+var recent = "http://zeitgometerapi.heroku.com/article/recent"
+var getById = "http://zeitgometerapi.heroku.com/article/"
 
 var ArticlesContainer  = React.createClass({
 
@@ -12,9 +13,19 @@ var ArticlesContainer  = React.createClass({
   },
 
   componentDidMount: function() {
+
+    this.getArticles(recent)
+
+  },
+
+  componentWillUnmount: function() {
+    this.serverRequest.abort();
+  },
+
+  getArticles: function(apiEndpoint) {
      request
       .post('/api')
-      .send({ "apiEndpoint": apiUrl})
+      .send({ "apiEndpoint": apiEndpoint})
       .set('Accept', "*/*")
       .end(function (err, res) {
         if (err) return console.error(err)
@@ -27,14 +38,16 @@ var ArticlesContainer  = React.createClass({
       }.bind(this))
   },
 
-  componentWillUnmount: function() {
-    this.serverRequest.abort();
+  getArticleById: function(articleId) {
+
+    this.getArticles(getById + articleId)
+
   },
 
   render: function(){
     return (
       <div className="col s10 z-depth-2" id="articlesTop" >
-        <h3 > Articles </h3>
+        <h2 > Articles </h2>
         <ListArticles articles={this.state.articles} />
       </div>
     )

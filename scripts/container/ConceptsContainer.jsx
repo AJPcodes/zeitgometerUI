@@ -3,6 +3,7 @@ var SearchBar = require('../components/SearchBar.jsx')
 var request = require('superagent')
 
 var trending = "http://zeitgometerapi.heroku.com/concept/trending"
+var popular = "http://zeitgometerapi.heroku.com/popular"
 var listAll = "http://zeitgometerapi.heroku.com/concept/listAll"
 
 var ConceptsContainer  = React.createClass({
@@ -85,11 +86,45 @@ var ConceptsContainer  = React.createClass({
 
   },
 
+  popularLookup: function() {
+
+     request
+      .post('/api')
+      .send({ "apiEndpoint": popular})
+      .set('Accept', "*/*")
+      .end(function (err, res) {
+        if (err) return console.error(err)
+
+        var data = JSON.parse(res.text)
+        this.setState({
+          concepts: data.data
+        });
+
+      }.bind(this))
+
+  },
+
+  handleClick: function(lookupParam) {
+    this.setState({
+      concepts: null
+    });
+
+    if (lookupParam == 'trending') {
+      this.trendingLookup()
+    } else {
+      this.popularLookup()
+    }
+
+  },
+
   render: function(){
     return (
       <div className="col s10 z-depth-2" id="conceptsTop" >
-        <h3 > Concepts </h3>
+        <h2 > Concepts </h2>
+        <p > Click to <span className="clickableLink" onClick={function(){this.handleClick('trending')}.bind(this)}> view trending concepts </span> or <span className="clickableLink" onClick={function(){this.handleClick('popular')}.bind(this)}> view popular concepts </span> </p>
+        <p > Search Concepts: </p>
         <SearchBar items={this.state.conceptsList} conceptLookup={this.conceptLookup}/>
+
         <ListConcepts concepts={this.state.concepts} />
       </div>
     )

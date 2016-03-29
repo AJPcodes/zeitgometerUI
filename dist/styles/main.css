@@ -5,11 +5,15 @@ body {
   body nav {
     font-family: "Lobster", cursive; }
 
-h1, h3, h3, h4, h5, h6 {
+h1, h2, h3, h3, h4, h5, h6 {
   font-size: 1.5em;
   display: block;
   text-align: center;
   padding: 0.5em;
+  font-weight: bold; }
+
+h2 {
+  font-size: 2.5em;
   font-family: "Lobster", cursive; }
 
 nav {
@@ -19,3 +23,18 @@ nav {
 
 .collapsible-header {
   background-color: #cddc39; }
+
+li p {
+  font-size: 1.25em; }
+
+li p:hover {
+  font-size: 1.3em;
+  color: #827717;
+  cursor: pointer; }
+
+.clickableLink {
+  color: #827717; }
+
+.clickableLink {
+  color: #afb42b;
+  cursor: pointer; }

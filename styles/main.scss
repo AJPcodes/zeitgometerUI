@@ -25,12 +25,18 @@ body {
   }
 }
 
-h1,h3,h3,h4,h5,h6 {
+h1, h2, h3, h3, h4, h5,h6 {
   font-size: 1.5em;
   display: block;
   text-align: center;
   padding: 0.5em;
-  font-family: $headingFont;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2.5em;
+    font-family: $headingFont;
+
 }
 
 nav {
@@ -41,4 +47,24 @@ nav {
 
 .collapsible-header {
   background-color: $primary;
+}
+
+li p {
+  font-size: 1.25em;
+}
+
+li p:hover {
+  font-size: 1.3em;
+  color: $darken-4;
+  cursor: pointer;
+
+}
+
+.clickableLink {
+  color: $darken-4;
+}
+
+.clickableLink {
+  color: $darken-2;
+  cursor: pointer;
 }
