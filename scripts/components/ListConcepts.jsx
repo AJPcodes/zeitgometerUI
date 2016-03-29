@@ -1,4 +1,41 @@
+var ArticleConcepts = require('./ArticleConcepts.jsx')
+var getById = "http://zeitgometerapi.heroku.com/article/"
+var request = require('superagent')
+
 var ListConcepts = React.createClass({
+
+  getInitialState: function() {
+    return {modalData: null};
+  },
+
+  openGraph: function(modalID) {
+    console.log('open graph')
+    this.getArticleById(modalID)
+    $("#" + modalID).openModal()
+  },
+
+  closeGraph: function(modalID) {
+    console.log('close graph')
+    $("#" + modalID).closeModal()
+  },
+
+
+  getArticleById: function(articleId) {
+
+     request
+      .post('/api')
+      .send({ "apiEndpoint": (getById + articleId)})
+      .set('Accept', "*/*")
+      .end(function (err, res) {
+        if (err) return console.error(err)
+
+        var data = JSON.parse(res.text)
+        this.setState({
+          modalData: data.data
+        });
+
+      }.bind(this))
+  },
 
   render: function(){
 
@@ -42,11 +79,29 @@ var ListConcepts = React.createClass({
 
         mappedArticles = articles.map(function(article) {
 
+          if (this.state.modalData && this.state.modalData._id  === article._id) {
+            graphData = this.state.modalData.concepts
+          } else {
+            graphData = null
+          }
+
           return  <div>
-                    <h6> {article.title}: <a href={article.url} target="blank"> {article.website} </a></h6>
+                    <h6> {article.title}:</h6>
+                    <p><a href={article.url} target="blank"> Read it on {article.website} </a> or
+                     view a <a className="waves-effect waves-light .modal-trigger" href={"#" + article._id} onClick={function(){this.openGraph(article._id)}.bind(this)}> Concept Graph</a>
+                    </p>
+                    <div id={article._id} className="modal">
+                      <div className="modal-content">
+                        <h4>{article.title}</h4>
+                        <ArticleConcepts title={article.title} articleId={article._id} concepts={graphData}/>
+                      </div>
+                        <div className="modal-footer">
+                          <a href="#!" className="modal-action modal-close waves-effect waves-green btn-flat" onClick={function() {this.closeGraph(article._id)}.bind(this)}>Close</a>
+                        </div>
+                    </div>
                   </div>;
 
-        }) //end map
+        }.bind(this)) //end map
 
         return  <li>
                   <div className="collapsible-header"><p>Concept: {concept}</p>  <p>Mentions: {numArticles}</p></div>

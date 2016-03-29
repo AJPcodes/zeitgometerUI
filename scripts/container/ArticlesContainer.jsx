@@ -44,10 +44,20 @@ var ArticlesContainer  = React.createClass({
 
   },
 
+  handleClick: function() {
+    this.setState({
+      articles: null
+    });
+
+    this.getArticles(recent)
+
+  },
+
   render: function(){
     return (
-      <div className="col s10 z-depth-2" id="articlesTop" >
+      <div className="col s12 m5 z-depth-2" id="articlesTop" >
         <h2 > Articles </h2>
+        <p > <span className="clickableLink" onClick={function(){this.handleClick('trending')}.bind(this)}> View recent articles </span> </p>
         <ListArticles articles={this.state.articles} />
       </div>
     )

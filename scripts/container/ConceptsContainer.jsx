@@ -119,10 +119,9 @@ var ConceptsContainer  = React.createClass({
 
   render: function(){
     return (
-      <div className="col s10 z-depth-2" id="conceptsTop" >
+      <div className="col s12 m5 z-depth-2" id="conceptsTop" >
         <h2 > Concepts </h2>
-        <p > Click to <span className="clickableLink" onClick={function(){this.handleClick('trending')}.bind(this)}> view trending concepts </span> or <span className="clickableLink" onClick={function(){this.handleClick('popular')}.bind(this)}> view popular concepts </span> </p>
-        <p > Search Concepts: </p>
+        <p > <span className="clickableLink" onClick={function(){this.handleClick('trending')}.bind(this)}> View trending concepts </span> or <span className="clickableLink" onClick={function(){this.handleClick('popular')}.bind(this)}> view popular concepts </span> </p>
         <SearchBar items={this.state.conceptsList} conceptLookup={this.conceptLookup}/>
 
         <ListConcepts concepts={this.state.concepts} />

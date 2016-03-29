@@ -5,6 +5,7 @@ var ArticleConcepts = React.createClass({
   render: function(){
     // console.log(this.props)
     if (this.props.concepts) {
+
       var plotID = this.props.title
       var plotData = {
         x: [],
@@ -53,7 +54,10 @@ var ArticleConcepts = React.createClass({
 
     }//end if
 
-    else return (<div></div>)
+    else {
+
+      return (<div>Loading Concept Graph</div>)
+    }
   }//end render
 
 }) //end

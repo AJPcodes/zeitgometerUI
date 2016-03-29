@@ -10,6 +10,7 @@ $darken-1: #c0ca33;
 $darken-2: #afb42b;
 $darken-3: #9e9d24;
 $darken-4: #827717;
+$backgroundImage: url("./images/backgroundGreen.jpg");
 
 @import url(https://fonts.googleapis.com/css?family=Lobster|Sanchez);
 
@@ -17,7 +18,8 @@ $fontStack: 'Sanchez', Arial, serif;
 $headingFont: 'Lobster', cursive;
 
 body {
-  background-color: $lighten-3;
+  background-image: $backgroundImage;
+  background-size: 100%;
   font-family: $fontStack;
 
   nav {
@@ -44,6 +46,39 @@ nav {
   height: 6em;
   padding: 1em;
 }
+
+#conceptsTop,  #articlesTop {
+  background-color: $lighten-3;
+  margin: 1.5em 0 0 1.5em;
+
+
+  ::-webkit-input-placeholder {
+     color: $darken-1;
+     font-size: 1.15em;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+     color: $darken-1;
+     font-size: 1.15em;
+
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+     color: $darken-1;
+     font-size: 1.15em;
+
+  }
+
+  :-ms-input-placeholder {
+     color: $darken-1;
+     font-size: 1.15em;
+
+  }
+
+
+}
+
+
 
 .collapsible-header {
   background-color: $primary;
