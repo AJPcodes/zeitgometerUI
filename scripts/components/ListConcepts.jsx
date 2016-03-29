@@ -81,9 +81,6 @@ var ListConcepts = React.createClass({
 
           if (this.state.modalData && this.state.modalData._id  === article._id) {
             graphData = this.state.modalData.concepts
-          } else {
-            graphData = null
-          }
 
           return  <div>
                     <h6> {article.title}:</h6>
@@ -100,6 +97,29 @@ var ListConcepts = React.createClass({
                         </div>
                     </div>
                   </div>;
+
+
+          } else {
+            graphData = null
+
+            return <div>
+                    <h6> {article.title}:</h6>
+                    <p><a href={article.url} target="blank"> Read it on {article.website} </a> or
+                     view a <a className="waves-effect waves-light .modal-trigger" href={"#" + article._id} onClick={function(){this.openGraph(article._id)}.bind(this)}> Concept Graph</a>
+                    </p>
+                    <div id={article._id} className="modal">
+                      <div className="modal-content">
+                        <h4>{article.title}</h4>
+                        <p>Loading Graph Data</p>
+                      </div>
+                        <div className="modal-footer">
+                          <a href="#!" className="modal-action modal-close waves-effect waves-green btn-flat" onClick={function() {this.closeGraph(article._id)}.bind(this)}>Close</a>
+                        </div>
+                    </div>
+                  </div>;
+
+          }
+
 
         }.bind(this)) //end map
 
