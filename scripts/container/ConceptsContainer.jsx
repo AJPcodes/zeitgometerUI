@@ -44,6 +44,10 @@ var ConceptsContainer  = React.createClass({
 
   conceptLookup: function(conceptId) {
 
+    this.setState({
+      concepts: null
+    });
+
     // console.log('concept lookup called with', conceptId)
     var apiUrl = "http://zeitgometerapi.heroku.com/concept/" + conceptId
 
@@ -83,9 +87,9 @@ var ConceptsContainer  = React.createClass({
 
   render: function(){
     return (
-      <div className="col s10">
+      <div className="col s10 z-depth-2" id="conceptsTop" >
+        <h3 > Concepts </h3>
         <SearchBar items={this.state.conceptsList} conceptLookup={this.conceptLookup}/>
-        <h3 id="conceptsTop" >Trending</h3>
         <ListConcepts concepts={this.state.concepts} />
       </div>
     )

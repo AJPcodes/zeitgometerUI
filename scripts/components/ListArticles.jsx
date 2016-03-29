@@ -35,8 +35,7 @@ var ListArticles = React.createClass({
                     <h4>{article.title}</h4>
                   </div>
                   <div className="collapsible-body">
-                    <p> <a href={article.url} target="blank">Read it on {article.website.toUpperCase()}</a>
-                    <a className="waves-effect waves-light btn .modal-trigger" href={"#" + article._id} onClick={function(){this.openGraph(article._id)}.bind(this)}>Concepts</a>
+                    <p> <a href={article.url} target="blank">Read it on {article.website.toUpperCase()}</a>   or   view a <a className="waves-effect waves-light .modal-trigger" href={"#" + article._id} onClick={function(){this.openGraph(article._id)}.bind(this)}> Concept Graph</a>
                     </p>
                     <div id={article._id} className="modal">
                       <div className="modal-content">

@@ -1,11 +1,16 @@
+@import url(https://fonts.googleapis.com/css?family=Lobster|Sanchez);
 body {
-  background-color: #e6ee9c; }
+  background-color: #e6ee9c;
+  font-family: "Sanchez", Arial, serif; }
+  body nav {
+    font-family: "Lobster", cursive; }
 
 h1, h3, h3, h4, h5, h6 {
   font-size: 1.5em;
   display: block;
   text-align: center;
-  padding: 0.5em; }
+  padding: 0.5em;
+  font-family: "Lobster", cursive; }
 
 nav {
   background-color: #afb42b;

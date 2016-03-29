@@ -11,9 +11,18 @@ $darken-2: #afb42b;
 $darken-3: #9e9d24;
 $darken-4: #827717;
 
+@import url(https://fonts.googleapis.com/css?family=Lobster|Sanchez);
+
+$fontStack: 'Sanchez', Arial, serif;
+$headingFont: 'Lobster', cursive;
 
 body {
   background-color: $lighten-3;
+  font-family: $fontStack;
+
+  nav {
+    font-family: $headingFont;
+  }
 }
 
 h1,h3,h3,h4,h5,h6 {
@@ -21,6 +30,7 @@ h1,h3,h3,h4,h5,h6 {
   display: block;
   text-align: center;
   padding: 0.5em;
+  font-family: $headingFont;
 }
 
 nav {

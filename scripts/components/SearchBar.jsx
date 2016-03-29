@@ -6,15 +6,12 @@ var SearchBar = React.createClass({
 
     handleChange: function(e){
 
-        // If you comment out this line, the text box will not change its value.
-        // This is because in React, an input cannot change independently of the value
-        // that was assigned to it. In our case this is this.state.searchString.
-
         this.setState({searchString:e.target.value});
     },
 
     handleClick: function(concept){
 
+        this.setState({searchString: ''});
         lookup = this.props.conceptLookup,
         lookup(concept._id)
     },
@@ -46,7 +43,7 @@ var SearchBar = React.createClass({
 
 
         return <div>
-                    <input className="lime" type="text" value={this.state.searchString} onChange={this.handleChange} placeholder="Search Concepts" />
+                    <input id="conceptSearchbar" className="lime" type="text" value={this.state.searchString} onChange={this.handleChange} placeholder="Search Concepts" />
                     <ul>
                         {libraries}
                     </ul>
