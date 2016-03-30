@@ -52,7 +52,6 @@ var SearchBar = React.createClass({
            return  <div>
                 <input type="text" value={this.state.searchString} onChange={this.handleChange} placeholder="Search Concepts" />
                 <ul>
-                    <li>Loading Dictionary</li>
                 </ul>
             </div>;
         }

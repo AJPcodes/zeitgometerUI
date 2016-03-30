@@ -124,7 +124,7 @@ var ListConcepts = React.createClass({
         }.bind(this)) //end map
 
         return  <li>
-                  <div className="collapsible-header"><p>Concept: {concept}</p>  <p>Mentions: {numArticles}</p></div>
+                  <div className="collapsible-header"><h4>Concept: {concept}</h4>  <p>Mentions: {numArticles}</p></div>
                   <div className="collapsible-body">{mappedArticles}</div>
                 </li>;
 
